@@ -30,7 +30,9 @@ namespace SpeedType
         /// </summary>
         public Game()
         {
-            // ////////// => TO IMPLEMENT <= //////////// //
+            sentenceProvider = new SentenceProvider();
+            evaluator = new Evaluator();
+            gameStats = new GameResult[0];// ////////// => TO IMPLEMENT <= //////////// //
         }
 
         /// <summary>
@@ -104,11 +106,11 @@ namespace SpeedType
 
             // The words per minute (WPM) calculated based on the time taken 
             // and the user input.
-            double wpm = new Evaluator().CalculateWPM(userInput,timeTaken);// ////////// => TO IMPLEMENT <= //////////// //
+            double wpm = evaluator.CalculateWPM(userInput,timeTaken);// ////////// => TO IMPLEMENT <= //////////// //
 
             // The accuracy percentage calculated based on the user's input and
             // the original sentence.
-            int accuracy = new Evaluator().CalculateAccuracy(userInput,sentence);// ////////// => TO IMPLEMENT <= //////////// //
+            int accuracy = evaluator.CalculateAccuracy(userInput,sentence);// ////////// => TO IMPLEMENT <= //////////// //
 
             // Shift existing entries
             for (int i = gameStats.Length - 1; i > 0; i--)
@@ -159,7 +161,7 @@ namespace SpeedType
 
                 // Add row to table
                 // Table.AddRow() only accepts strings
-                Table.AddRow(table,gameStats[i]);
+                table.AddRow($"{i}",$"{gameStats[i].WPM}",$"{gameStats[i].Accuracy}",$"{gameStats[i].TimeTaken}");
                 // ////////// => TO IMPLEMENT <= //////////// //
             }
 
