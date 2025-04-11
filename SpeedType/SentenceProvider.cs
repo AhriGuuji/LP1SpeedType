@@ -57,7 +57,7 @@ namespace SpeedType
         public string GetRandomSentence()
         {
 
-            return sentences[random.Next()];
+            return sentences[random.Next(0,sentences.Length)];
             // ////////// => TO IMPLEMENT <= //////////// //
         }
     }

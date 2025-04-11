@@ -118,6 +118,7 @@ namespace SpeedType
                 gameStats[i] = gameStats[i-1];// ////////// => TO IMPLEMENT <= //////////// //
             }
 
+
             // Add new result at the beginning
             gameStats[0] = new GameResult(wpm,accuracy,timeTaken);// ////////// => TO IMPLEMENT <= //////////// //
 
